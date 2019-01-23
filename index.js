@@ -158,7 +158,7 @@ export default class Pdf extends Component {
         // first set to initial state
         this.setState({isDownloaded: false, path: '', progress: 0});
 
-        const cacheFile = RNFetchBlob.fs.dirs.CacheDir + '/' + SHA1(uri) + '.pdf';
+        const cacheFile = RNFetchBlob.fs.dirs.DocumentDir + '/' + SHA1(uri) + '.pdf';
 
         if (source.cache) {
             RNFetchBlob.fs
@@ -190,7 +190,7 @@ export default class Pdf extends Component {
                 const isAsset = !!(uri && uri.match(/^bundle-assets:\/\//));
                 const isBase64 = !!(uri && uri.match(/^data:application\/pdf;base64/));
 
-                const cacheFile = RNFetchBlob.fs.dirs.CacheDir + '/' + SHA1(uri) + '.pdf';
+                const cacheFile = RNFetchBlob.fs.dirs.DocumentDir + '/' + SHA1(uri) + '.pdf';
 
                 // delete old cache file
                 this._unlinkFile(cacheFile);
